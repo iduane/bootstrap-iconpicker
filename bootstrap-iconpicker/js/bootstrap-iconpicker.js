@@ -99,10 +99,12 @@
     
     Iconpicker.prototype.changeList = function (page) {        
         this.filterIcons();
-        this.updateLabels(page);
-        this.updateIcons(page);
-        this.options.page = page;
-        this.bindEvents();
+        if (page > 0 && page <= this.totalPages()) {
+            this.updateLabels(page);
+            this.updateIcons(page);
+            this.options.page = page;
+            this.bindEvents();
+        }
     };
     
     Iconpicker.prototype.filterIcons = function () {
